@@ -3,20 +3,29 @@
   "private": "true",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app/server.js",
   "scripts": {
-    "test": ""
+    "serve": "node server.js",
+    "watch": "webpack --progress --colors --watch --config webpack.config.js"
   },
   "author": "rnsloan1@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer-loader": "^3.1.0",
     "axios": "^0.5.4",
-    "body-parser": "^1.13.3",
-    "express": "^4.13.3",
-    "react": "^0.13.3",
-    "react-router": "^0.13.3",
     "babel-core": "^5.8.23",
     "babel-loader": "^5.3.2",
+    "body-parser": "^1.13.3",
+    "css-loader": "^0.18.0",
+    "express": "^4.13.3",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "html-webpack-plugin": "^1.6.1",
+    "node-sass": "^3.3.2",
+    "react": "^0.13.3",
+    "react-router": "^0.13.3",
+    "sass-loader": "^2.0.1",
+    "source-map-support": "^0.3.2",
+    "style-loader": "^0.12.3",
     "webpack": "^1.12.1"
   }
 }
