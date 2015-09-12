@@ -35,9 +35,7 @@ module.exports = {
       allChunks: true
     }),
     new HtmlWebpackPlugin({
-      inject: 'body',
-      title: 'Movie Search',
-      template: 'app/template.html'
+      title: 'Movie Search'
     })
   ]
 };
