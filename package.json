@@ -7,7 +7,7 @@
   "scripts": {
     "mocha": "mocha",
     "serve": "node server.js",
-    "test": "mocha tests/e2e/test.js",
+    "test": "mocha tests/e2e/*.js",
     "watch": "webpack --progress --colors --watch --config webpack.config.js"
   },
   "author": "rnsloan1@gmail.com",
