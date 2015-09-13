@@ -13,3 +13,6 @@ dockerStart:
 dockerAttach:
 	docker exec -it moviesearch bash
 
+DockerTest:
+	## vnc://<boot2docker-ip>:5900
+	docker run --name moviesearch-seleniumff -d -p 4444:4444 -p 5900:5900 selenium/standalone-firefox-debug

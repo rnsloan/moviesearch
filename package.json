@@ -5,7 +5,9 @@
   "description": "",
   "main": "app/server.js",
   "scripts": {
+    "mocha": "mocha",
     "serve": "node server.js",
+    "test": "mocha tests/e2e/test.js",
     "watch": "webpack --progress --colors --watch --config webpack.config.js"
   },
   "author": "rnsloan1@gmail.com",
@@ -28,5 +30,10 @@
     "source-map-support": "^0.3.2",
     "style-loader": "^0.12.3",
     "webpack": "^1.12.1"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.3.2",
+    "webdriverio": "^3.2.3"
   }
 }
