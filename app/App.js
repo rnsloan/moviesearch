@@ -6,6 +6,7 @@ import { Router, Route, DefaultRoute } from 'react-router';
 import HomeView from './components/HomeView';
 import MovieView from './components/MovieView';
 import SearchView from './components/SearchView';
+import Style from './App.css';
 
 ReactDOM.render((
   <Router history={createBrowserHistory()}>
