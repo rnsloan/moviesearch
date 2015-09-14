@@ -35,8 +35,8 @@ describe('Home View', function () {
   it('should be able to search by movie title', function (done) {
     client
       .url(webdriverioconfig.appUrl)
-      .setValue('#foobar', 'mad max')
-      .click('button')
+      .setValue('input', 'mad max')
+      .submitForm('form')
       .url(function(err,res) {
         expect(res.value).to.contain('/search?title=mad%20max');
       })
