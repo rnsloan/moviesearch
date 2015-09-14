@@ -16,7 +16,7 @@ describe('Search View', function () {
 
   it('should display the correct page title', function (done) {
     client
-      .url(`${webdriverioconfig.appUrl}/search`)
+      .url('/search')
       .title(function (err, res) {
         expect(res.value).to.equal('Movie Search');
       })
@@ -25,7 +25,7 @@ describe('Search View', function () {
 
   it('should display the correct page content', function (done) {
     client
-      .url(`${webdriverioconfig.appUrl}/search`)
+      .url('/search')
       .getText('h1').then(function(text) {
         expect(text).to.equal('Search');
       })

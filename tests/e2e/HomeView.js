@@ -16,7 +16,7 @@ describe('Home View', function () {
 
   it('should display the correct page title', function (done) {
     client
-      .url(webdriverioconfig.appUrl)
+      .url('/')
       .title(function (err, res) {
         expect(res.value).to.equal('Movie Search');
       })
@@ -25,7 +25,7 @@ describe('Home View', function () {
 
   it('should display the correct page content', function (done) {
     client
-      .url(webdriverioconfig.appUrl)
+      .url('/')
       .getText('h1').then(function (text) {
         expect(text).to.equal('Home');
       })
@@ -34,7 +34,7 @@ describe('Home View', function () {
 
   it('should be able to search by movie title', function (done) {
     client
-      .url(webdriverioconfig.appUrl)
+      .url('/')
       .setValue('input', 'mad max')
       .submitForm('form')
       .url(function(err,res) {
