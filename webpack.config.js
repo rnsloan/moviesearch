@@ -32,6 +32,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      __MOVIEAPIKEY__: JSON.stringify(process.env.MOVIEAPIKEY)
+    }),
     new ExtractTextPlugin('css/style.css', {
       allChunks: true
     }),
