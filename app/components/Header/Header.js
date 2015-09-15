@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import styles from './Header.scss';
 
 export default (props) => {
@@ -11,7 +12,7 @@ export default (props) => {
         </span>
 
         <nav className="mdl-navigation">
-          <a className="mdl-navigation__link" href="">Search</a>
+          <Link to={`/`} className="mdl-navigation__link">Search</Link>
           <a className="mdl-navigation__link" href="">Discover</a>
         </nav>
       </div>
