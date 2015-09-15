@@ -18,7 +18,7 @@ export default class extends React.Component {
   }
 
   componentWillMount() {
-    getMovies()
+    getMovies(this.title)
       .then((response) => {
         if (response.status === 200) {
           this.setState({
@@ -37,7 +37,7 @@ export default class extends React.Component {
     return (
       <div>
         <h1>Search</h1>
-        <p>Searched for: {this.title}</p>
+        <p className="results">Searched for: {this.title}</p>
         <h2>Results</h2>
         <Results results={this.state.results} />
       </div>

@@ -40,7 +40,7 @@ describe('Home View', function () {
       .url(function(err,res) {
         expect(res.value).to.contain('/search?title=mad%20max');
       })
-      .getText('p').then(function (text) {
+      .getText('.results').then(function (text) {
         expect(text).to.equal('Searched for: mad max');
       })
       .call(done);
