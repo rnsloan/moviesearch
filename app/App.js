@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Router } from 'react-router';
 
-import HomeView from './components/HomeView';
+import IndexView from './components/IndexView';
 import MovieView from './components/MovieView';
 import SearchView from './components/SearchView';
 import Style from './App.scss';
@@ -25,7 +25,7 @@ ReactDOM.render((
     <Route component={App}>
       <Route path="/movie" component={MovieView}/>
       <Route path="/search" component={SearchView}/>
-      <Route path="*" component={HomeView}/>
+      <Route path="*" component={IndexView}/>
     </Route>
   </Router>
 ), document.getElementById('moviesearch-app'));
