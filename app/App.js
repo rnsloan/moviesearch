@@ -1,4 +1,5 @@
 import createBrowserHistory from 'history/lib/createBrowserHistory';
+import MaterialDesignStyle from 'material-design-lite/material.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route } from 'react-router';
