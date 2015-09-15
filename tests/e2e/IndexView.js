@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 const webdriverio = require('webdriverio');
 const webdriverioconfig = require('../webdriverio.config');
 
-describe('Home View', function () {
+describe('Index View', function () {
   this.timeout(8000);
 
   before(function (done) {
@@ -19,15 +19,6 @@ describe('Home View', function () {
       .url('/')
       .title(function (err, res) {
         expect(res.value).to.equal('Movie Search');
-      })
-      .call(done);
-  });
-
-  it('should display the correct page content', function (done) {
-    client
-      .url('/')
-      .getText('h1').then(function (text) {
-        expect(text).to.equal('Home');
       })
       .call(done);
   });
