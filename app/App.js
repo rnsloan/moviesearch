@@ -2,7 +2,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 import MaterialDesignStyle from 'material-design-lite/material.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Router } from 'react-router';
+import { IndexRoute, Route, Router } from 'react-router';
 
 import IndexView from './components/IndexView';
 import Header from './components/Header/Header';
@@ -18,13 +18,12 @@ export default class App extends React.Component {
     Material.componentHandler.upgradeElement(layout);
   }
 
-  /*
-    the <div> tag at the root of the render method is required
-    because otherwise the Material Design JS + the 'mdl-js-layout'
-    class stop react-router from working for some reason
-   */
-
   render() {
+    /*
+     the <div> tag at the root is required because
+     otherwise the Material Design JS 'upgrading' .mdl-js-layout
+     stop react-router from working for some reason
+     */
     return (
       <div>
         <div ref="mdlLayout" className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -43,8 +42,10 @@ export default class App extends React.Component {
 ReactDOM.render((
   <Router history={createBrowserHistory()}>
     <Route component={App}>
+      <Route component={IndexView}>
+        <Route path="/search" component={SearchView}/>
+      </Route>
       <Route path="/movie" component={MovieView}/>
-      <Route path="/search" component={SearchView}/>
       <Route path="*" component={IndexView}/>
     </Route>
   </Router>

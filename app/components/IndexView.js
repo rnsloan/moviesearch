@@ -11,9 +11,12 @@ export default class extends React.Component {
 
   render() {
     return (
-      <form onSubmit={(e) => this.submitForm(e)}>
-        <SearchInput ref="foobar" />
-      </form>
+      <div>
+        <form onSubmit={(e) => this.submitForm(e)}>
+          <SearchInput />
+        </form>
+        {this.props.children}
+      </div>
     );
   }
 }
