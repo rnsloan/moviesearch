@@ -1,3 +1,12 @@
+@import "utils/styles/mediaQueries";
+
 body {
-    background: #f5f5f5;
+  background: #f5f5f5;
+}
+
+.pageContent {
+  padding: 0 10px;
+  @include tabletAndAbove {
+    padding: 0 20px;
+  }
 }

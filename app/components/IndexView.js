@@ -5,7 +5,7 @@ export default class extends React.Component {
   componentDidMount() {
     const Material = require('exports?componentHandler&MaterialRipple!material-design-lite/material.js');
     const input = this.refs.mdlInput;
-    Material.componentHandler.upgradeElement(input, 'MaterialLayout');
+    Material.componentHandler.upgradeElement(input);
   }
 
   submitForm(e) {

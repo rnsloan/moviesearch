@@ -1,5 +1,10 @@
+@import "../../utils/styles/mediaQueries";
+
 .headerRow {
-  padding: 0 48px;
+  padding: 0 10px;
+  @include tabletAndAbove {
+    padding: 0 20px;
+  }
 }
 
 .link {
@@ -17,4 +22,3 @@
   padding-left: 10px;
   padding-right: 48px;
 }
-

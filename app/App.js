@@ -15,7 +15,7 @@ export default class App extends React.Component {
   componentDidMount() {
     const Material = require('exports?componentHandler&MaterialRipple!material-design-lite/material.js');
     const layout = this.refs.mdlLayout;
-    Material.componentHandler.upgradeElement(layout, 'MaterialLayout');
+    Material.componentHandler.upgradeElement(layout);
   }
 
   /*
@@ -30,7 +30,7 @@ export default class App extends React.Component {
         <div ref="mdlLayout" className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <Header title="Movie Search"/>
           <main className="mdl-layout__content">
-            <div className="page-content">
+            <div className={styles.pageContent}>
               {this.props.children}
             </div>
           </main>
