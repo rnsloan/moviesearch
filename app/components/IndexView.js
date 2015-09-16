@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default class extends React.Component {
+  componentDidMount() {
+    const Material = require('exports?componentHandler&MaterialRipple!material-design-lite/material.js');
+    const input = this.refs.mdlInput;
+    Material.componentHandler.upgradeElement(input, 'MaterialLayout');
+  }
+
   submitForm(e) {
     e.preventDefault();
     const searchQuery = this.refs.searchInput.value;

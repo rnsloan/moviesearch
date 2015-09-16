@@ -6,13 +6,14 @@ export default (props) => {
   return (
     <header className="mdl-layout__header mdl-layout__header--scroll">
       <div className={'mdl-layout__header-row ' + styles.headerRow}>
-        <i className={'material-icons ' + styles.icon}>movie</i>
-        <span className={'mdl-layout-title ' + styles.title}>
-          {props.title}
-        </span>
+        <Link to={`/`} className={styles.link}>
+          <i className={'material-icons ' + styles.icon}>movie</i>
+          <span className={'mdl-layout-title ' + styles.title}>
+            {props.title}
+          </span>
+        </Link>
 
         <nav className="mdl-navigation">
-          <Link to={`/`} className="mdl-navigation__link">Search</Link>
           <a className="mdl-navigation__link" href="">Discover</a>
         </nav>
       </div>

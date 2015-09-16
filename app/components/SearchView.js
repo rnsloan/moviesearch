@@ -17,7 +17,7 @@ export default class extends React.Component {
     this.title = this.props.location.query.title;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     getMovies(this.title)
       .then((response) => {
         if (response.status === 200) {
