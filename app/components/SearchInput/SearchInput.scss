@@ -1,0 +1,19 @@
+@import "../../utils/styles/mediaQueries";
+
+.textField {
+  width: 100%;
+}
+
+.label,
+.input {
+  @include tabletAndAbove {
+    font-size: 50px;
+  }
+}
+
+.label {
+  @include tabletAndAbove {
+    line-height: 1;
+    top: 35px;
+  }
+}
