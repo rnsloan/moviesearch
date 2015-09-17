@@ -1,5 +1,5 @@
 import React from 'react';
-import getMovies from '../utils/api/discover'
+import {searchMovie} from '../utils/movieApi'
 
 import Results from './Results'
 
@@ -8,8 +8,9 @@ export default class extends React.Component {
     super(props);
 
     this.state = {
+      query: '',
       page: 0,
-      results: [],
+      results: undefined,
       total_pages: 0,
       total_results: 0
     };
@@ -17,11 +18,23 @@ export default class extends React.Component {
     this.title = this.props.location.query.title;
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.getResults(nextProps.location.query.title);
+  }
+
   componentDidMount() {
-    getMovies(this.title)
+    this.getResults(this.title);
+  }
+
+  getResults(query) {
+    this.setState({results: undefined});
+
+
+    searchMovie(query)
       .then((response) => {
         if (response.status === 200) {
           this.setState({
+            query: query,
             page: response.data.page,
             results: response.data.results,
             total_pages: response.data.total_pages,
@@ -34,10 +47,14 @@ export default class extends React.Component {
   }
 
   render() {
+    if ( !this.state.results ) {
+      return <div></div>;
+    }
+
     return (
       <div>
         <h1>Search</h1>
-        <p className="results">Searched for: {this.title}</p>
+        <p className="results">Searched for: {this.state.query}</p>
         <h2>Results</h2>
         <Results results={this.state.results} />
       </div>

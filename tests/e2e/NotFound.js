@@ -17,8 +17,8 @@ describe('Not Found Url', function () {
   it('should display the homepage', function (done) {
     client
       .url('/dsdsds')
-      .getText('h1').then(function (text) {
-        expect(text).to.equal('Home');
+      .isExisting('#searchInput').then(function(isExisting) {
+        expect(isExisting).to.be.true
       })
       .call(done);
   });

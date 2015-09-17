@@ -31,8 +31,10 @@ describe('Index View', function () {
       .url(function(err,res) {
         expect(res.value).to.contain('/search?title=mad%20max');
       })
-      .getText('.results').then(function (text) {
-        expect(text).to.equal('Searched for: mad max');
+      .waitForExist('.results', 3000).then(function () {
+        client.getText('.results').then(function (text) {
+          expect(text).to.equal('Searched for: mad max');
+        })
       })
       .call(done);
   });
