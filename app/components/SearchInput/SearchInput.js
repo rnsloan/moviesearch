@@ -64,7 +64,3 @@ export default class SearchInput extends React.Component {
     );
   }
 }
-
-SearchInput.contextTypes = {
-  location: React.PropTypes.object
-};
