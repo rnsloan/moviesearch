@@ -8,14 +8,13 @@ export default class extends React.Component {
     super(props);
 
     this.state = {
+      loading: false,
       query: '',
       page: 0,
       results: undefined,
       total_pages: 0,
       total_results: 0
     };
-
-    this.title = this.props.location.query.title;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -23,17 +22,20 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    this.getResults(this.title);
+    this.getResults(this.props.location.query.title);
   }
 
   getResults(query) {
-    this.setState({results: undefined});
-
+    this.setState({
+      loading: true,
+      results: undefined
+    });
 
     searchMovie(query)
       .then((response) => {
         if (response.status === 200) {
           this.setState({
+            loading: false,
             query: query,
             page: response.data.page,
             results: response.data.results,
@@ -47,6 +49,9 @@ export default class extends React.Component {
   }
 
   render() {
+    if ( this.state.loading ) {
+      return <div>Loading...</div>;
+    }
     if ( !this.state.results ) {
       return <div></div>;
     }
