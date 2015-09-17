@@ -56,7 +56,7 @@ export default class extends React.Component {
         <h1>Search</h1>
         <p className="results">Searched for: {this.state.query}</p>
         <h2>Results</h2>
-        <Results results={this.state.results} />
+        <Results query={this.state.query} results={this.state.results} />
       </div>
     );
   }

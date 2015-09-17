@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from "react-helmet";
 
 import SearchInput from './SearchInput/SearchInput'
 
@@ -12,6 +13,7 @@ export default class extends React.Component {
   render() {
     return (
       <div>
+        <Helmet title='Movie Search' />
         <form onSubmit={(e) => this.submitForm(e)}>
           <SearchInput />
         </form>

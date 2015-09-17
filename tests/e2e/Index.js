@@ -2,32 +2,34 @@ const expect = require('chai').expect;
 const webdriverio = require('webdriverio');
 const webdriverioconfig = require('../webdriverio.config');
 
-describe('Search View', function () {
+describe('Index View', function () {
   this.timeout(8000);
 
-  before(function(done) {
+  before(function (done) {
     client = webdriverio.remote(webdriverioconfig.clientConfig);
     client.init(done)
   });
 
-  after(function(done) {
+  after(function (done) {
     client.end(done);
   });
 
   it('should display the correct page title', function (done) {
     client
-      .url('/search')
+      .url('/')
       .title(function (err, res) {
         expect(res.value).to.equal('Movie Search');
       })
       .call(done);
   });
 
-  it('should display the correct page content', function (done) {
+  it('should be able to search for movies', function (done) {
     client
-      .url('/search')
-      .getText('h1').then(function(text) {
-        expect(text).to.equal('Search');
+      .url('/')
+      .setValue('input', 'mad max')
+      .submitForm('form')
+      .url(function(err,res) {
+        expect(res.value).to.contain('/search?title=mad%20max');
       })
       .call(done);
   });

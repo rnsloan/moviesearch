@@ -7,7 +7,7 @@ import { IndexRoute, Route, Router } from 'react-router';
 import IndexView from './components/IndexView';
 import Header from './components/Header/Header';
 import MovieView from './components/MovieView';
-import SearchView from './components/SearchView';
+import ResultsContainer from './components/ResultsContainer';
 import styles from './App.scss';
 
 
@@ -43,7 +43,7 @@ ReactDOM.render((
   <Router history={createBrowserHistory()}>
     <Route component={App}>
       <Route component={IndexView}>
-        <Route path="/search" component={SearchView}/>
+        <Route path="/search" component={ResultsContainer}/>
       </Route>
       <Route path="/movie" component={MovieView}/>
       <Route path="*" component={IndexView}/>

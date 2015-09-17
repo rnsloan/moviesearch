@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 const webdriverio = require('webdriverio');
 const webdriverioconfig = require('../webdriverio.config');
 
-describe('Not Found Url', function () {
+describe('Page Not Found', function () {
   this.timeout(8000);
 
   before(function (done) {
@@ -19,6 +19,9 @@ describe('Not Found Url', function () {
       .url('/dsdsds')
       .isExisting('#searchInput').then(function(isExisting) {
         expect(isExisting).to.be.true
+      })
+      .title(function (err, res) {
+        expect(res.value).to.equal('Movie Search');
       })
       .call(done);
   });

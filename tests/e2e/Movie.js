@@ -18,7 +18,7 @@ describe('Movie View', function () {
     client
       .url('/movie')
       .title(function (err, res) {
-        expect(res.value).to.equal('Movie Search');
+        expect(res.value).to.equal('Movie Name');
       })
       .call(done);
   });
