@@ -15,7 +15,7 @@ export default class extends React.Component {
       <div>
         <Helmet title='Movie Search' />
         <form onSubmit={(e) => this.submitForm(e)}>
-          <SearchInput />
+          <SearchInput query={this.props.location.query} urlPath={this.props.location.pathname} />
         </form>
         {this.props.children}
       </div>

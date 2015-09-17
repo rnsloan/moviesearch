@@ -32,9 +32,9 @@ describe('Search View', function () {
   it('should display results', function (done) {
     client
       .url('/search?title=mad%20max')
-      /*.getValue('input').then(function(value) {
+      .getValue('#searchInput').then(function(value) {
         expect(value).to.equal('mad max')
-      })*/
+      })
       .waitForExist('.results', 3000).then(function () {
         client.getText('.results').then(function (text) {
           expect(text).to.equal('Searched for: mad max');
@@ -43,21 +43,21 @@ describe('Search View', function () {
       .call(done);
   });
 
-  /*it('should display clear the search input when going back to the homepage', function (done) {
+  it('should display clear the search input when going back to the homepage', function (done) {
     client
       .url('/search?title=mad%20max')
-      .getValue('input').then(function(value) {
+      .getValue('#searchInput').then(function(value) {
         expect(value).to.equal('mad max')
       })
       .click('.home-link')
       .url(function(err,res) {
         expect(res.value).to.not.contain('search?title');
       })
-      .getValue('input').then(function(value) {
+      .getValue('#searchInput').then(function(value) {
         expect(value).to.equal('')
       })
       .call(done);
-  });*/
+  });
 });
 
 
