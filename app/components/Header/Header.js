@@ -14,10 +14,6 @@ export default (props) => {
         </Link>
 
         <div className="mdl-layout-spacer"></div>
-
-        <nav className="mdl-navigation">
-          <a className="mdl-navigation__link" href="">Discover</a>
-        </nav>
       </div>
     </header>
   )
