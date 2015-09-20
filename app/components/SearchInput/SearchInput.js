@@ -5,8 +5,10 @@ export default class SearchInput extends React.Component {
   constructor(props) {
     super(props);
 
+    const queryText = this.props.query.title || '';
+
     this.state = {
-      inputValue: ''
+      inputValue: queryText
     };
 
     this.addLabelPlaceholderText = this.addLabelPlaceholderText.bind(this);
@@ -14,10 +16,6 @@ export default class SearchInput extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      inputValue: this.props.query.title
-    });
-
     const Material = require('exports?componentHandler&MaterialRipple!material-design-lite/material.js');
     const input = this.refs.mdlInput;
     Material.componentHandler.upgradeElement(input);
@@ -64,3 +62,9 @@ export default class SearchInput extends React.Component {
     );
   }
 }
+
+SearchInput.propTypes = {
+  query: React.PropTypes.object,
+  urlPath: React.PropTypes.string.isRequired
+};
+
