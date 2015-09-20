@@ -1,0 +1,32 @@
+@import "../../utils/styles/mediaQueries";
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.element {
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 100%;
+}
+
+.title {
+  height: 70px;
+  @include tabletAndAbove {
+    height: 175px;
+  }
+}
+.titleText {
+  padding-right: 5px; // so text-shadow not cut-off
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.supportingText {
+  box-sizing: border-box;
+  width: 100%;
+}

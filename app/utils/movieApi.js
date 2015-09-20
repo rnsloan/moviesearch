@@ -9,7 +9,8 @@ const urlPath = '//api.themoviedb.org/3/';
 export default {
   searchMovie: function(title) {
     return axios.get(`${urlPath}search/movie?api_key=${__MOVIEAPIKEY__}&query=${title}`)
-  }
+  },
+  backdropUrl: '//image.tmdb.org/t/p/w1280/'
 }
 
 //return axios.get(`//api.themoviedb.org/3/discover/movie?api_key=${__MOVIEAPIKEY__}&`)

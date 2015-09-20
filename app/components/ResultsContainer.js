@@ -1,7 +1,7 @@
 import React from 'react';
-import {searchMovie} from '../utils/movieApi'
+import {backdropUrl, searchMovie} from '../utils/movieApi'
 
-import Results from './Results'
+import Results from './Results/Results'
 
 export default class extends React.Component {
   constructor(props) {
@@ -59,10 +59,9 @@ export default class extends React.Component {
 
     return (
       <div>
-        <h1>Search</h1>
-        <p className="results">Searched for: {this.state.query}</p>
-        <h2>Results</h2>
-        <Results query={this.state.query} results={this.state.results} />
+        <h1 className="sr-only">Results</h1>
+        <p>Searched for: <strong>{this.state.query}</strong></p>
+        <Results query={this.state.query} results={this.state.results} backdropUrl={backdropUrl} />
       </div>
     );
   }
