@@ -22,12 +22,12 @@ export default class App extends React.Component {
     /*
      the <div> tag at the root is required because
      otherwise the Material Design JS 'upgrading' .mdl-js-layout
-     stop react-router from working for some reason
+     stops react-router from working for some reason
      */
     return (
       <div>
         <div ref="mdlLayout" className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <Header title="Movie Search"/>
+          <Header title="Search"/>
           <main className="mdl-layout__content">
             <div className={styles.pageContent}>
               {this.props.children}
