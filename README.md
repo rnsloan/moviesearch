@@ -1,17 +1,10 @@
-## Material design resources
 
- - [http://material-ui.com/](http://material-ui.com/) - not currently compatible with react 0.14
- - [http://www.getmdl.io/](http://www.getmdl.io/)
- - [http://materializecss.com/](http://materializecss.com/)
- 
-### Material Design Javascript binding:
+Movie search using the [https://www.themoviedb.org](themoviedb) api and Material Design. 
 
-- [https://gist.github.com/DarrenN/5c8e6df6eabb9632af74](https://gist.github.com/DarrenN/5c8e6df6eabb9632af74) 
+### Note: Material Design Lite Usage
 
-```
-componentDidMount() {
-    const Material = require('exports?componentHandler&MaterialRipple!material-design-lite/material.js');
-    let layout = document.getElementById('layout');
-    Material.componentHandler.upgradeElement(layout, 'MaterialLayout');
-  }
-```   
+This project uses [http://www.getmdl.io](http://www.getmdl.io/) for the Material Design styles. 
+
+I **strongly** recommend not using this in a CommonJS project until this issue is fixed: [https://github.com/google/material-design-lite/issues/833](https://github.com/google/material-design-lite/issues/833). 
+
+At the time of writing, the main JavaScript file is constructed to be loaded using a `<script>` tag and the current workaround detailed in the github issue causes a lot of pain when unit testing react components (hence the lack of unit tests in this project. If you want to see the beginnings of trying to write tests you can look at the branch named `unit-tests`).  
