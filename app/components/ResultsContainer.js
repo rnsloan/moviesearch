@@ -60,7 +60,7 @@ export default class extends React.Component {
     return (
       <div>
         <h1 className="sr-only">Results</h1>
-        <p>Searched for: <strong>{this.state.query}</strong></p>
+        <p className="results-subtext">Searched for: <strong>{this.state.query}</strong></p>
         <Results query={this.state.query} results={this.state.results} backdropUrl={backdropUrl} />
       </div>
     );

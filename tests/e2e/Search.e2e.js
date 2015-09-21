@@ -35,8 +35,8 @@ describe('Search View', function () {
       .getValue('#searchInput').then(function(value) {
         expect(value).to.equal('mad max')
       })
-      .waitForExist('.results', 3000).then(function () {
-        client.getText('.results').then(function (text) {
+      .waitForExist('.results-subtext', 3000).then(function () {
+        client.getText('.results-subtext').then(function (text) {
           expect(text).to.equal('Searched for: mad max');
         })
       })
