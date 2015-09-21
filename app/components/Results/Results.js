@@ -9,7 +9,7 @@ export default class extends React.Component {
     const backdropUrl = this.props.backdropUrl;
 
     const moviesList = this.props.results.map(function (movie, index) {
-      let releaseDate = moment(movie.release_date).format('Do MMMM YYYY');
+      const releaseDate = moment(movie.release_date).format('Do MMMM YYYY');
       let backgroundImageStyle;
 
       if (movie.backdrop_path === null) {
