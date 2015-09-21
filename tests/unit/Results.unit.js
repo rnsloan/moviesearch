@@ -1,17 +1,40 @@
 import {expect} from 'chai';
-import sinon  from'sinon';
-import Test from 'legit-tests';
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
 
-import SearchInput from '../../app/components/Results/Results';
+import Results from '../../app/components/Results/Results';
+import data from '../api/search.json'
 
-describe('Test', function () {
+const props = {
+  query: '',
+  backdropUrl: '',
+  results: data.results
+};
+
+describe('First Result', function () {
   before(function () {
+    const shallowRenderer = TestUtils.createRenderer();
+    shallowRenderer.render(<Results {...props} />);
+    this.result = shallowRenderer.getRenderOutput();
   });
 
-  after(function () {
-  });
+  it('renders the first result correctly', function () {
+    const firstResult = this.result.props.children[1][0];
+    const firstResultCard = firstResult.props.children;
+    const heading = firstResultCard.props.children[0].props.children;
+    const supportingText = firstResultCard.props.children[1];
+    const link = firstResultCard.props.children[2].props.children;
 
-  it('should test something', function () {
-    expect(true).to.be.true;
+    expect(firstResultCard.props.className).to.contain('mdl-card');
+
+    expect(data.results[0].title).to.equal('Fight Club');
+    expect(heading.props.className).to.contain('mdl-card__title-text');
+    expect(heading.props.children).to.equal('Fight Club');
+
+    expect(supportingText.props.className).to.contain('mdl-card__supporting-text');
+    expect(supportingText.props.children[2].props.children).to.contain('Release Date');
+
+    expect(link.props.className).to.contain('mdl-button');
+    expect(link.props.children[0]).to.contain('VIEW MOVIE');
   });
 });

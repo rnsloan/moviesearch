@@ -40,9 +40,10 @@
   },
   "devDependencies": {
     "chai": "^3.2.0",
+    "json-loader": "^0.5.3",
     "mocha": "^2.3.2",
-    "legit-tests": "^0.4.1",
-    "sinon": "^1.16.1",
+    "node-noop": "0.0.1",
+    "react-addons-test-utils": "^0.14.0-rc1",
     "webdriverio": "^3.2.3"
   }
 }

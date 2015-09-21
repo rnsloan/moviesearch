@@ -25,13 +25,13 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        loader: 'exports-loader'
-      },
-      {
         test: /\.(js|jsx)$/,
         loader: 'babel'
-      }
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
+      },
     ]
   },
   plugins: [
