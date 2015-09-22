@@ -11,11 +11,11 @@ function formatReleaseDate(original) {
   return moment(original).format('Do MMMM YYYY');
 }
 
-function setBackdropPath(rootBackdropUrl, backdropPath) {
+function setBackdropPath(rootBackdropPath, backdropPath) {
   if (backdropPath === null) {
     return {backgroundImage: 'none', height: '70px'};
   } else {
-    return {backgroundImage: `url(${rootBackdropUrl}${backdropPath})`};
+    return {backgroundImage: `url(${rootBackdropPath}${backdropPath})`};
   }
 }
 
@@ -24,7 +24,7 @@ export default (props) => {
     return (
       <li key={index} className={styles.element}>
         <div className={'mdl-card ' + styles.card}>
-          <div className={'mdl-card__title ' + styles.title} style={setBackdropPath(props.rootBackdropUrl, movie.backdrop_path)}>
+          <div className={'mdl-card__title ' + styles.title} style={setBackdropPath(props.rootBackdropPath, movie.backdrop_path)}>
             <h2 className={'mdl-card__title-text ' + styles.titleText}>{movie.title}</h2>
           </div>
           <div className={'mdl-card__supporting-text ' + styles.supportingText}>
