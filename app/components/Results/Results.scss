@@ -16,6 +16,7 @@
 
 .title {
   height: 70px;
+  background-color: rgba(0,0,0,0.2);
   @include tabletAndAbove {
     height: 175px;
   }

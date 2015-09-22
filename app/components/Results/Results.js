@@ -13,7 +13,7 @@ function formatReleaseDate(original) {
 
 function setBackdropPath(rootBackdropUrl, backdropPath) {
   if (backdropPath === null) {
-    return {backgroundImage: 'none', height: '70px', backgroundColor: 'rgba(0,0,0,0.2)'};
+    return {backgroundImage: 'none', height: '70px'};
   } else {
     return {backgroundImage: `url(${rootBackdropUrl}${backdropPath})`};
   }
