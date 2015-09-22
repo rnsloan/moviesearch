@@ -49,12 +49,12 @@ export default class extends React.Component {
   }
 
   render() {
-    if (!this.state.results || !this.state.results.length) {
-      return <div></div>;
-    }
-
     if ( this.state.loading ) {
       return <div>Loading...</div>;
+    }
+
+    if (!this.state.results || !this.state.results.length) {
+      return <div></div>;
     }
 
     return (
