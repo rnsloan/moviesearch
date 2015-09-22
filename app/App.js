@@ -46,7 +46,7 @@ ReactDOM.render((
       <Route component={IndexView}>
         <Route path="/search" component={ResultsContainer}/>
       </Route>
-      <Route path="/movie" component={MovieView}/>
+      <Route path="/movie/:id" component={MovieView}/>
       <Route path="*" component={IndexView}/>
     </Route>
   </Router>

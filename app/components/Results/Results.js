@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React from 'react';
 import Helmet from "react-helmet";
+import { Link } from 'react-router';
 import styles from './Results.scss';
 
 function createPageTitle(query) {
@@ -35,9 +36,9 @@ export default (props) => {
             <strong>Vote Average:</strong> {movie.vote_average}
           </div>
           <div className="mdl-card__actions mdl-card--border">
-            <a className="mdl-button mdl-button--colored">
+            <Link to={`/movie/${movie.id}`} className="mdl-button mdl-button--colored">
               VIEW MOVIE <span className='sr-only'>{movie.title}</span>
-            </a>
+            </Link>
           </div>
         </div>
       </li>
