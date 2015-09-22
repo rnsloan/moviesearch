@@ -7,9 +7,9 @@ import { IndexRoute, Route, Router } from 'react-router';
 import IndexView from './components/IndexView';
 import Header from './components/Header/Header';
 import MovieView from './components/MovieView';
+import {ProgressLoader} from './components/ProgressLoader/ProgressLoader';
 import ResultsContainer from './components/ResultsContainer';
 import styles from './App.scss';
-
 
 export default class App extends React.Component {
   componentDidMount() {
@@ -26,6 +26,7 @@ export default class App extends React.Component {
      */
     return (
       <div>
+        <ProgressLoader />
         <div ref="mdlLayout" className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
           <Header title="Search"/>
           <main className="mdl-layout__content">

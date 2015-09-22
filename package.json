@@ -27,6 +27,7 @@
     "history": "^1.9.0",
     "html-webpack-plugin": "^1.6.1",
     "material-design-lite": "^1.0.4-2",
+    "mini-signals": "0.0.7",
     "moment": "^2.10.6",
     "node-sass": "^3.3.2",
     "react": "^0.14.0-rc1",
@@ -40,10 +41,13 @@
   },
   "devDependencies": {
     "chai": "^3.2.0",
+    "jsdom": "^6.5.1",
     "json-loader": "^0.5.3",
     "mocha": "^2.3.2",
+    "mocha-jsdom": "^1.0.0",
     "node-noop": "0.0.1",
     "react-addons-test-utils": "^0.14.0-rc1",
     "webdriverio": "^3.2.3"
   }
+
 }

@@ -11,14 +11,14 @@ const props = {
   results: data.results
 };
 
-describe('First Result', function () {
+describe('Results Component', function () {
   before(function () {
     const shallowRenderer = TestUtils.createRenderer();
     shallowRenderer.render(<Results {...props} />);
     this.componentRender = shallowRenderer.getRenderOutput();
   });
 
-  it('renders the first result correctly', function () {
+  it('should render the first result correctly', function () {
     const firstResult = this.componentRender.props.children[1][0];
     const firstResultCard = firstResult.props.children;
     const heading = firstResultCard.props.children[0].props.children;
