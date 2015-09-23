@@ -2,7 +2,6 @@ import React from 'react';
 import {rootBackdropPath, searchMovie} from '../utils/movieApi';
 
 import Results from './Results/Results';
-
 import {progressLoaderSignal} from './ProgressLoader/ProgressLoader';
 
 export default class extends React.Component {
@@ -61,11 +60,7 @@ export default class extends React.Component {
   }
 
   render() {
-    if (this.state.loading) {
-      return <div></div>;
-    }
-
-    if (!this.state.results || !this.state.results.length) {
+    if (this.state.loading || !this.state.results || !this.state.results.length) {
       return <div></div>;
     }
 
@@ -76,6 +71,5 @@ export default class extends React.Component {
         <Results query={this.state.query} results={this.state.results} rootBackdropPath={rootBackdropPath}/>
       </div>
     );
-
   }
 }
