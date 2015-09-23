@@ -15,5 +15,3 @@ export default {
   },
   rootBackdropPath: '//image.tmdb.org/t/p/w1280/'
 }
-
-//return axios.get(`//api.themoviedb.org/3/discover/movie?api_key=${__MOVIEAPIKEY__}&`)

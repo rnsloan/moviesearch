@@ -1,16 +1,7 @@
 @import "../../utils/styles/mediaQueries";
 
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.element {
-  margin-bottom: 20px;
-}
-
 .card {
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -24,10 +15,25 @@
 .titleText {
   padding-right: 5px; // so text-shadow not cut-off
   color: white;
+  font-size: 34px;
   text-shadow: 1px 1px 1px black;
+}
+
+.overviewTitle {
+  margin: 0;
 }
 
 .supportingText {
   box-sizing: border-box;
   width: 100%;
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.strong {
+  font-weight: bold;
 }

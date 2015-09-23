@@ -1,6 +1,29 @@
 import React from 'react';
-import styles from './Movie.scss';
 import {formatReleaseDate, setBackdropPath} from '../../utils/helpers';
+import styles from './Movie.scss';
+
+function formatGenres(genreList) {
+  const list = [];
+  genreList.forEach(function (obj) {
+    list.push(obj.name);
+  })
+  return list.join(', ');
+}
+
+//http://stackoverflow.com/a/2901298
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function formatRunningTime(timeInMinutes) {
+  const hours = ( Math.floor( timeInMinutes/60) );
+  const minutes = ( timeInMinutes - (hours * 60) );
+
+  const hoursString = hours === 1 ? 'hour' : 'hours';
+  const minutesString = minutes === 1 ? 'minute' : 'minutes';
+
+  return `${hours} ${hoursString} ${minutes} ${minutesString}`;
+}
 
 export default (props) => {
   const movie = props.movie;
@@ -8,16 +31,18 @@ export default (props) => {
     <div className={'mdl-card ' + styles.card}>
       <div className={'mdl-card__title ' + styles.title}
            style={setBackdropPath(props.rootBackdropPath, movie.backdrop_path)}>
-        <h2 className={'mdl-card__title-text ' + styles.titleText}>{movie.title}</h2>
+        <h1 className={'mdl-card__title-text ' + styles.titleText}>{movie.title}</h1>
       </div>
       <div className={'mdl-card__supporting-text ' + styles.supportingText}>
-        {movie.overview}
+        <h2 className={'mdl-typography--title ' + styles.overviewTitle}>Overview</h2>
+        <p>{movie.overview}</p>
         <hr />
-        <ul>
-          <li>Release Date: {formatReleaseDate(movie.release_date)}</li>
-          <li>Runtime: {movie.runtime}</li>
-          <li>Revenue: {movie.revenue}</li>
-          <li>Vote Average: {movie.vote_average}</li>
+        <ul className={styles.detailsList}>
+          <li><span className={styles.strong}>Release Date:</span> {formatReleaseDate(movie.release_date)}</li>
+          <li><span className={styles.strong}>Genres:</span> {formatGenres(movie.genres)}</li>
+          <li><span className={styles.strong}>Runtime:</span> {formatRunningTime(movie.runtime)}</li>
+          {movie.revenue != 0 && <li><span className={styles.strong}>Revenue:</span> {'$' + numberWithCommas(movie.revenue)}</li>}
+          <li><span className={styles.strong}>Vote Average:</span> {movie.vote_average} <small>({movie.vote_count} votes)</small></li>
         </ul>
       </div>
       <div className="mdl-card__actions mdl-card--border">
@@ -31,10 +56,3 @@ export default (props) => {
     </div>
   );
 };
-
-
-/*
- genres
- backdrop_path
-  poster_path
- */
