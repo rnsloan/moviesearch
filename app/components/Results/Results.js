@@ -20,7 +20,6 @@ export default (props) => {
             {movie.overview}
             <hr />
             <strong>Release Date:</strong> {formatReleaseDate(movie.release_date)}<br />
-            <strong>Genres:</strong> {movie.genre_ids.join(', ')}<br />
             <strong>Vote Average:</strong> {movie.vote_average}
           </div>
           <div className="mdl-card__actions mdl-card--border">
