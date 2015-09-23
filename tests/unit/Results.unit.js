@@ -19,7 +19,7 @@ describe('Results Component', function () {
   });
 
   it('should render the first result correctly', function () {
-    const firstResult = this.componentRender.props.children[1][0];
+    const firstResult = this.componentRender.props.children[0];
     const firstResultCard = firstResult.props.children;
     const heading = firstResultCard.props.children[0].props.children;
     const supportingText = firstResultCard.props.children[1];
