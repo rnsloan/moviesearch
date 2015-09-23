@@ -7,11 +7,20 @@
   "scripts": {
     "build-client-production": "webpack --progress --colors --config webpack.production.config.js",
     "mocha": "mocha",
+    "postinstall": "webpack --config webpack.production.config.js",
     "start": "node server.js",
     "test": "npm run test-unit && npm run test-e2e",
     "test-e2e": "mocha tests/e2e/*.js",
     "test-unit": "webpack --config webpack.test.config.js && mocha tests/test-bundle.js --full-trace",
     "watch": "webpack --progress --colors --watch --config webpack.config.js"
+  },
+  "engines": {
+    "node": "4.0.0",
+    "npm": "2.14.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rnsloan/moviesearch.git"
   },
   "author": "rnsloan1@gmail.com",
   "license": "ISC",
