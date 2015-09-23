@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from "react-helmet";
 import {rootBackdropPath, searchMovie} from '../utils/movieApi';
 
 import Results from './Results/Results';
@@ -17,6 +18,7 @@ export default class extends React.Component {
       total_results: 0
     };
 
+    this.createPageTitle = this.createPageTitle.bind(this);
     this.displayProgressLoader = this.displayProgressLoader.bind(this);
   }
 
@@ -26,6 +28,10 @@ export default class extends React.Component {
 
   componentDidMount() {
     this.getResults(this.props.location.query.title);
+  }
+
+  createPageTitle(query) {
+    return query ? `${query} - Movie Search` : 'Movie Search';
   }
 
   displayProgressLoader(bool) {
@@ -66,6 +72,7 @@ export default class extends React.Component {
 
     return (
       <div>
+        <Helmet title={this.createPageTitle(this.state.query)} />
         <h1 className="sr-only">Results</h1>
         <p className="results-subtext">Searched for: <strong>{this.state.query}</strong></p>
         <Results query={this.state.query} results={this.state.results} rootBackdropPath={rootBackdropPath}/>

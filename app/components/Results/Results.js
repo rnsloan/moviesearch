@@ -1,6 +1,5 @@
 import moment from 'moment';
 import React from 'react';
-import Helmet from "react-helmet";
 import { Link } from 'react-router';
 import styles from './Results.scss';
 import {formatReleaseDate, setBackdropPath} from '../../utils/helpers';
@@ -36,7 +35,6 @@ export default (props) => {
 
   return (
     <ul className={styles.list}>
-      <Helmet title={createPageTitle(props.query)}/>
       {moviesList}
     </ul>
   )

@@ -14,6 +14,7 @@ export default class extends React.Component {
       data: undefined
     };
 
+    this.createPageTitle = this.createPageTitle.bind(this);
     this.displayProgressLoader = this.displayProgressLoader.bind(this);
   }
 
@@ -23,6 +24,10 @@ export default class extends React.Component {
 
   componentDidMount() {
     this.loadMovie(this.props.params.id);
+  }
+
+  createPageTitle(title) {
+    return title ? `${title} - Movie Search` : 'Movie Search';
   }
 
   displayProgressLoader(bool) {
@@ -57,9 +62,11 @@ export default class extends React.Component {
       return <div></div>;
     }
 
+
+
     return (
       <div>
-        <Helmet title='Movie Name' />
+        <Helmet title={this.createPageTitle(this.state.data.title)} />
         <Movie movie={this.state.data} rootBackdropPath={rootBackdropPath} />
       </div>
     );

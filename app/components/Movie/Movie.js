@@ -39,10 +39,10 @@ export default (props) => {
         <hr />
         <ul className={styles.detailsList}>
           <li><span className={styles.strong}>Release Date:</span> {formatReleaseDate(movie.release_date)}</li>
-          <li><span className={styles.strong}>Genres:</span> {formatGenres(movie.genres)}</li>
-          <li><span className={styles.strong}>Runtime:</span> {formatRunningTime(movie.runtime)}</li>
+          {movie.genres.length != 0 && <li><span className={styles.strong}>Genres:</span> {formatGenres(movie.genres)}</li>}
+          {movie.runtime != 0 && <li><span className={styles.strong}>Runtime:</span> {formatRunningTime(movie.runtime)}</li>}
           {movie.revenue != 0 && <li><span className={styles.strong}>Revenue:</span> {'$' + numberWithCommas(movie.revenue)}</li>}
-          <li><span className={styles.strong}>Vote Average:</span> {movie.vote_average} <small>({movie.vote_count} votes)</small></li>
+          {movie.vote_average != 0 && <li><span className={styles.strong}>Vote Average:</span> {movie.vote_average} <small>({movie.vote_count} votes)</small></li>}
         </ul>
       </div>
       <div className="mdl-card__actions mdl-card--border">
