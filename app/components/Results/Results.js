@@ -3,21 +3,10 @@ import React from 'react';
 import Helmet from "react-helmet";
 import { Link } from 'react-router';
 import styles from './Results.scss';
+import {formatReleaseDate, setBackdropPath} from '../../utils/helpers';
 
 function createPageTitle(query) {
   return query ? `${query} - Movie Search` : 'Movie Search';
-}
-
-function formatReleaseDate(original) {
-  return moment(original).format('Do MMMM YYYY');
-}
-
-function setBackdropPath(rootBackdropPath, backdropPath) {
-  if (backdropPath === null) {
-    return {backgroundImage: 'none', height: '70px'};
-  } else {
-    return {backgroundImage: `url(${rootBackdropPath}${backdropPath})`};
-  }
 }
 
 export default (props) => {

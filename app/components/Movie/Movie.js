@@ -1,18 +1,6 @@
-import moment from 'moment';
 import React from 'react';
 import styles from './Movie.scss';
-
-function formatReleaseDate(original) {
-  return moment(original).format('Do MMMM YYYY');
-}
-
-function setBackdropPath(rootBackdropPath, backdropPath) {
-  if (backdropPath === null) {
-    return {backgroundImage: 'none', height: '70px'};
-  } else {
-    return {backgroundImage: `url(${rootBackdropPath}${backdropPath})`};
-  }
-}
+import {formatReleaseDate, setBackdropPath} from '../../utils/helpers';
 
 export default (props) => {
   const movie = props.movie;
