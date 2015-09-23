@@ -6,6 +6,7 @@ import { IndexRoute, Route, Router } from 'react-router';
 
 import IndexView from './components/IndexView';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import MovieView from './components/MovieView';
 import {ProgressLoader} from './components/ProgressLoader/ProgressLoader';
 import ResultsContainer from './components/ResultsContainer';
@@ -34,6 +35,7 @@ export default class App extends React.Component {
               {this.props.children}
             </div>
           </main>
+          <Footer />
         </div>
       </div>
     );
