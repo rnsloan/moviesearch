@@ -5,7 +5,7 @@
   "description": "",
   "main": "app/server.js",
   "scripts": {
-    "build-client": "webpack --progress --colors --config webpack.config.js",
+    "build-client-production": "webpack --progress --colors --config webpack.production.config.js",
     "mocha": "mocha",
     "start": "node server.js",
     "test": "npm run test-unit && npm run test-e2e",
