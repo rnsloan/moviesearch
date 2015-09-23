@@ -16,7 +16,10 @@ app.use(function (req, res, next) {
   }
 });
 
+//heroku environment defines a port
+app.set('port', (process.env.PORT || 3000));
+
 // static file serve
 app.use(express.static('./public'));
-app.listen(3000);
+app.listen(app.get('port'));
 
