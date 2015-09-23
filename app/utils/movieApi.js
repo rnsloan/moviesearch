@@ -1,4 +1,7 @@
+import {polyfill} from 'es6-promise';
 import axios from 'axios';
+
+polyfill();
 
 if (typeof __MOVIEAPIKEY__ === 'undefined') {
   console.error('warning: themoviedb API key has not been set')
