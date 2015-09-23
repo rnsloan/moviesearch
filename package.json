@@ -5,8 +5,9 @@
   "description": "",
   "main": "app/server.js",
   "scripts": {
+    "build-client": "webpack --progress --colors --config webpack.config.js",
     "mocha": "mocha",
-    "serve": "node server.js",
+    "start": "node server.js",
     "test": "npm run test-unit && npm run test-e2e",
     "test-e2e": "mocha tests/e2e/*.js",
     "test-unit": "webpack --config webpack.test.config.js && mocha tests/test-bundle.js --full-trace",
@@ -16,11 +17,11 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer-loader": "^3.1.0",
-    "axios": "^0.5.4",
+    "axios": "^0.6.0",
     "babel-core": "^5.8.23",
     "babel-loader": "^5.3.2",
     "body-parser": "^1.13.3",
-    "css-loader": "^0.18.0",
+    "css-loader": "^0.19.0",
     "exports-loader": "^0.6.2",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^0.8.2",
@@ -51,5 +52,4 @@
     "react-addons-test-utils": "^0.14.0-rc1",
     "webdriverio": "^3.2.3"
   }
-
 }
