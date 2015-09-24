@@ -1,6 +1,5 @@
 ## eval "$(docker-machine env dev)"
 
-## docker commands to be run in host OS
 dockerRsync:
 	docker-osx-dev -e .git -e node_modules -e public
 
