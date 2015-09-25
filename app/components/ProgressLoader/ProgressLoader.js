@@ -14,14 +14,17 @@ export class ProgressLoader extends React.Component {
     };
 
     this.changeDisplay = this.changeDisplay.bind(this);
-    //add signal listener
-    this.binding = progressLoaderSignal.add(this.changeDisplay);
   }
 
   changeDisplay(bool) {
     this.setState({
       show: bool
     });
+  }
+
+  componentDidMount() {
+    //add signal listener
+    this.binding = progressLoaderSignal.add(this.changeDisplay);
   }
 
   componentWillUnmount() {
