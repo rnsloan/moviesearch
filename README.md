@@ -1,4 +1,7 @@
-[http://mmoviesearch.herokuapp.com](http://mmoviesearch.herokuapp.com/)
+[http://mmoviesearch.herokuapp.com](http://mmoviesearch.herokuapp.com/) (heroku dyno may take a while to start)
+
+![preview](https://cloud.githubusercontent.com/assets/2513462/10240876/bd3dd970-6924-11e5-9c67-a99e26e44f02.png)
+
 
 Movie search using the [https://www.themoviedb.org](themoviedb) api and Material Design. 
 
