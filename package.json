@@ -15,8 +15,8 @@
     "watch": "webpack --progress --colors --watch --config webpack.config.js"
   },
   "engines": {
-    "node": "4.0.0",
-    "npm": "2.14.2"
+    "node": "5.0.0",
+    "npm": "3.3.6"
   },
   "repository": {
     "type": "git",
@@ -26,39 +26,39 @@
   "license": "ISC",
   "dependencies": {
     "autoprefixer-loader": "^3.1.0",
-    "axios": "^0.6.0",
+    "axios": "^0.7.0",
     "babel-core": "^5.8.23",
     "babel-loader": "^5.3.2",
     "body-parser": "^1.13.3",
-    "css-loader": "^0.19.0",
+    "css-loader": "^0.21.0",
     "es6-promise": "^3.0.2",
     "exports-loader": "^0.6.2",
     "express": "^4.13.3",
-    "extract-text-webpack-plugin": "^0.8.2",
+    "extract-text-webpack-plugin": "^0.9.0",
     "file-loader": "^0.8.4",
     "history": "^1.9.0",
     "html-webpack-plugin": "^1.6.1",
     "image-webpack-loader": "^1.6.1",
     "material-design-lite": "^1.0.4-2",
-    "mini-signals": "0.0.7",
+    "mini-signals": "1.1.0",
     "moment": "^2.10.6",
     "node-sass": "^3.3.2",
-    "react": "^0.14.0-rc1",
-    "react-dom": "^0.14.0-rc1",
-    "react-helmet": "^1.1.3",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-helmet": "^2.1.1",
     "react-router": "^1.0.0-rc1",
-    "sass-loader": "^2.0.1",
+    "sass-loader": "^3.1.1",
     "source-map-support": "^0.3.2",
-    "style-loader": "^0.12.3",
-    "webpack": "^1.12.1"
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.2"
   },
   "devDependencies": {
     "chai": "^3.2.0",
-    "jsdom": "^6.5.1",
+    "jsdom": "^7.0.2",
     "json-loader": "^0.5.3",
     "mocha": "^2.3.2",
     "mocha-jsdom": "^1.0.0",
-    "node-noop": "0.0.1",
+    "node-noop": "1.0.0",
     "react-addons-test-utils": "^0.14.0-rc1",
     "webdriverio": "^3.2.3"
   }
