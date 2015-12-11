@@ -6,7 +6,7 @@ Movie search using the [https://www.themoviedb.org](themoviedb) api and Material
 
 Built to test out a few recent things in the react ecosystem (functional components, router v1, shallow renderer)
 
-Uses a [signals library](https://github.com/Hypercubed/mini-signals) instead of a store to communicate between components.
+Uses a [signals library](https://github.com/Hypercubed/mini-signals) instead of a flux implementation to aid with communicating between components.
 
 ### Note: Material Design Lite Usage
 
