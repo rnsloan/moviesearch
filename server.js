@@ -21,5 +21,6 @@ app.set('port', (process.env.PORT || 3000));
 
 // static file serve
 app.use(express.static('./public'));
-app.listen(app.get('port'));
-
+app.listen(app.get('port'), '0.0.0.0', function () {
+  console.log('listening on %s...', app.get('port'));
+});

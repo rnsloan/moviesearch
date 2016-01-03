@@ -1,4 +1,3 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
@@ -28,17 +27,17 @@ module.exports = {
       {
         test: /\.css$/,
         include: /node_modules/,
-        loader: ExtractTextPlugin.extract('style', 'css')
+        loader: 'style!css'
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}')
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}'
       },
       {
         test: /\.scss$/,
         exclude: '/node_modules/',
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}!sass')
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}!sass'
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
@@ -52,9 +51,6 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       __MOVIEAPIKEY__: JSON.stringify(process.env.MOVIEAPIKEY)
-    }),
-    new ExtractTextPlugin('css/style.css', {
-      allChunks: true
     }),
     new HtmlWebpackPlugin({
       inject: 'body',
