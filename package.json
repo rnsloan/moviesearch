@@ -5,13 +5,13 @@
   "description": "",
   "main": "app/server.js",
   "scripts": {
-    "build-client-production": "rm -rf public && NODE_ENV=production webpack --progress --colors --config webpack.production.config.js",
+    "build:client:production": "rm -rf public && NODE_ENV=production webpack --progress --colors --config webpack.production.config.js",
     "postinstall": "NODE_ENV=production webpack --config webpack.production.config.js",
     "start": "node server.js",
-    "start-prod": "node server.prod.js",
+    "start:production": "node server.prod.js",
     "test": "npm run test-unit && npm run test-e2e",
-    "test-e2e": "mocha tests/e2e/*.js",
-    "test-unit": "NODE_ENV=test webpack --config webpack.test.config.js && mocha tests/test-bundle.js --full-trace"
+    "test:e2e": "mocha tests/e2e/*.js",
+    "test:unit": "NODE_ENV=test webpack --config webpack.test.config.js && mocha tests/test-bundle.js --full-trace"
   },
   "engines": {
     "node": "5.0.0",
