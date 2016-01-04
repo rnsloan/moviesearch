@@ -2,19 +2,51 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-const devConfig = require('./webpack.config.js');
-
 module.exports = {
   name: 'client-production',
-  entry: devConfig.entry,
+  entry: "./app/App.js",
   output: {
     path: "./public",
     publicPath: '/',
     filename: "bundle.[hash].js"
   },
-  resolve: devConfig.resolve,
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
-    loaders: devConfig.module.loaders
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'exports-loader'
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+      },
+      {
+        test: /\.css$/,
+        include: /node_modules/,
+        loader: ExtractTextPlugin.extract('style', 'css')
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}')
+      },
+      {
+        test: /\.scss$/,
+        exclude: '/node_modules/',
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}!sass')
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        loaders: [
+          'file?hash=sha512&digest=hex&name=[name].[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
+      }
+    ]
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -25,8 +57,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: 'body',
-      title: 'Movie Search',
-      template: 'app/template.html'
+      template: 'app/index.prod.html'
     }),
     new webpack.DefinePlugin({
       'process.env': {

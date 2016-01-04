@@ -29,7 +29,7 @@ describe('Index View', function () {
       .setValue('input', 'mad max')
       .submitForm('form')
       .url(function(err,res) {
-        expect(res.value).to.contain('/search?title=mad%20max');
+        expect(res.value).to.contain('/search?title=mad+max');
       })
       .call(done);
   });

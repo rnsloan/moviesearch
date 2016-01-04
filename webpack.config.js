@@ -1,19 +1,21 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   name: "client",
-  entry: "./app/App.js",
+  entry: [
+    'webpack-hot-middleware/client',
+    "./app/App"
+ ],
   output: {
-    path: "./public",
-    publicPath: '/',
+    path: path.join(__dirname, 'public'),
+    publicPath: '/public/',
     filename: "bundle.js"
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  devtool: 'sourcemap',
+  devtool: 'cheap-module-eval-source-map',
   module: {
     loaders: [
       {
@@ -22,23 +24,23 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel?stage=1'
+        include: path.join(__dirname, 'app'),
+        loader: 'babel'
       },
       {
         test: /\.css$/,
         include: /node_modules/,
-        loader: ExtractTextPlugin.extract('style', 'css')
+        loader: 'style!css'
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}')
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}'
       },
       {
         test: /\.scss$/,
         exclude: '/node_modules/',
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}!sass')
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!autoprefixer?{browsers:["last 2 version", "> 5%"]}!sass'
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
@@ -53,14 +55,7 @@ module.exports = {
     new webpack.DefinePlugin({
       __MOVIEAPIKEY__: JSON.stringify(process.env.MOVIEAPIKEY)
     }),
-    new ExtractTextPlugin('css/style.css', {
-      allChunks: true
-    }),
-    new HtmlWebpackPlugin({
-      inject: 'body',
-      title: 'Movie Search',
-      template: 'app/template.html'
-    })
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ]
 };
-
