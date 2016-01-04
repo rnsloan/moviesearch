@@ -2,17 +2,17 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-const devConfig = require('./webpack.config.js');
-
 module.exports = {
   name: 'client-production',
-  entry: devConfig.entry,
+  entry: "./app/App.js",
   output: {
     path: "./public",
     publicPath: '/',
     filename: "bundle.[hash].js"
   },
-  resolve: devConfig.resolve,
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   module: {
     loaders: [
       {
@@ -22,9 +22,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        query: {
-          presets: ['react', 'es2015']
-        }
+        loader: 'babel'
       },
       {
         test: /\.css$/,
@@ -59,8 +57,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: 'body',
-      title: 'Movie Search',
-      template: 'app/template.html'
+      template: 'app/index.prod.html'
     }),
     new webpack.DefinePlugin({
       'process.env': {
@@ -74,5 +71,4 @@ module.exports = {
       }
     })
   ]
-}
-;
+};

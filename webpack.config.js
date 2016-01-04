@@ -1,18 +1,21 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   name: "client",
-  entry: "./app/App.js",
+  entry: [
+    'webpack-hot-middleware/client',
+    "./app/App"
+ ],
   output: {
-    path: "./public",
-    publicPath: '/',
+    path: path.join(__dirname, 'public'),
+    publicPath: '/public/',
     filename: "bundle.js"
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  devtool: 'sourcemap',
+  devtool: 'cheap-module-eval-source-map',
   module: {
     loaders: [
       {
@@ -21,11 +24,8 @@ module.exports = {
       },
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
-        }
+        include: path.join(__dirname, 'app'),
+        loader: 'babel'
       },
       {
         test: /\.css$/,
@@ -55,11 +55,7 @@ module.exports = {
     new webpack.DefinePlugin({
       __MOVIEAPIKEY__: JSON.stringify(process.env.MOVIEAPIKEY)
     }),
-    new HtmlWebpackPlugin({
-      inject: 'body',
-      title: 'Movie Search',
-      template: 'app/template.html'
-    })
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ]
 };
-

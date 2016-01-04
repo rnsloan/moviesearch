@@ -1,26 +1,27 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const path = require('path');
-const app = express();
+var path = require('path');
+var express = require('express');
+var webpack = require('webpack');
+var config = require('./webpack.config');
 
-app.use(bodyParser.urlencoded({extended:false}));
+var app = express();
+var compiler = webpack(config);
 
-app.use(function (req, res, next) {
-  if (path.extname(req.path).length > 0) {
-    // normal static file request
-    next();
-  }
-  else {
-    req.url = '/index.html';
-    next();
-  }
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
+
+app.use(require('webpack-hot-middleware')(compiler));
+
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'app/index.html'));
 });
 
-//heroku environment defines a port
-app.set('port', (process.env.PORT || 3000));
+app.listen(3000, '0.0.0.0', function(err) {
+  if (err) {
+    console.log(err);
+    return;
+  }
 
-// static file serve
-app.use(express.static('./public'));
-app.listen(app.get('port'), '0.0.0.0', function () {
-  console.log('listening on %s...', app.get('port'));
+  console.log('Listening at http://0.0.0.0:3000');
 });
