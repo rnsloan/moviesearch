@@ -26,7 +26,10 @@ module.exports = {
     loaders: [
       {
         test: /\.(js|jsx)$/,
-        loader: 'babel'
+        loader: 'babel',
+        query: {
+          presets: ['react', 'es2015']
+        }
       },
       {
         test: /\.json$/,
