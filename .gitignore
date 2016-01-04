@@ -1,5 +1,5 @@
 # public
-app/public/*
+public/*
 
 # build files
 tests/test-bundle.js
