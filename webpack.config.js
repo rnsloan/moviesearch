@@ -12,6 +12,10 @@ module.exports = {
     publicPath: '/public/',
     filename: "bundle.js"
   },
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: true
+  },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
