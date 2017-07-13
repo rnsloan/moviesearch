@@ -14,8 +14,8 @@
     "test:unit": "NODE_ENV=test webpack --config webpack.test.config.js && mocha tests/test-bundle.js --full-trace"
   },
   "engines": {
-    "node": "5.0.0",
-    "npm": "3.3.6"
+    "node": "8.1.4",
+    "npm": "5.0.3"
   },
   "repository": {
     "type": "git",
